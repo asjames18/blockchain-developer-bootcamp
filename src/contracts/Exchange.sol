@@ -1,4 +1,5 @@
-pragma solidity ^0.7.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.5.0;
 
 import "./Token.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
@@ -65,9 +66,9 @@ contract Exchange {
     }
 
     // Fallback: reverts if Ether is sent to this smart contract by mistake
-    function() external {
-        revert();
-    }
+    function() external
+        revert;
+
 
     function depositEther() payable public {
         tokens[ETHER][msg.sender] = tokens[ETHER][msg.sender].add(msg.value);
